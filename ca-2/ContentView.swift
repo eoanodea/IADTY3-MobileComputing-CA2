@@ -17,20 +17,31 @@ struct ContentView: View {
 //     var orderModel: OrderModel
     var body: some View {
             VStack {
-                List {
-                    Section(
-                        header: Text("Hello!!!")
-                        ) {
-                            ForEach(userList.users) {item in
-                                Text(item.name)
-                            }
-                    }
-                }.onAppear(perform: printStuff)
-            }
+                if(userList.total > 0) {
+                    List {
+                        Section(
+                            header: Text("Hello!!!")
+                            ) {
+                                ForEach(userList.users) {item in
+                                    Text(item.name)
+                                }
+                        }
+                    }.onAppear(perform: printStuff)
+                } else {
+                    Text("Loading!").font(.headline)
+                }
+        }.onAppear(perform: watchStuff)
     }
     
     func printStuff() {
         print("hello!! \(userList.users.first?.name ?? "no")")
+        print("count!! \(userList.total)")
+    }
+    
+    func watchStuff() {
+        for n in 0...100 {
+            print("[\(n)] Running watch loop: \(userList.total)")
+        }
     }
     
 //    func loadData() {
