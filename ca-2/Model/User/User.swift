@@ -17,7 +17,8 @@ struct User: Codable, Identifiable {
     var confirmed: Bool
     var blocked: Bool
     var isPrivate: Bool
-    var followers: [Follow] = []
+    var followers = [Follow]()
+    var following = [Follow]()
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -28,5 +29,7 @@ struct User: Codable, Identifiable {
         case confirmed
         case blocked
         case isPrivate = "private"
+        case followers
+        case following
     }
 }

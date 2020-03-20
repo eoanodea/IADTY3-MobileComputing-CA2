@@ -25,6 +25,7 @@
 		43D5DE5A24250D8400FDD894 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 43D5DE5924250D8400FDD894 /* URLImage */; };
 		43D5DE5C2425366200FDD894 /* DefaultProfilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5DE5B2425366200FDD894 /* DefaultProfilePhotoView.swift */; };
 		43D5DE5E2425673B00FDD894 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5DE5D2425673B00FDD894 /* UserModel.swift */; };
+		43D5DE60242581E100FDD894 /* UserCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5DE5F242581E100FDD894 /* UserCountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		43D5DE5624250B9900FDD894 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		43D5DE5B2425366200FDD894 /* DefaultProfilePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProfilePhotoView.swift; sourceTree = "<group>"; };
 		43D5DE5D2425673B00FDD894 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		43D5DE5F242581E100FDD894 /* UserCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				43D5DE4F242506DE00FDD894 /* UserListView.swift */,
 				43D5DE51242506F400FDD894 /* UserRowView.swift */,
 				43D5DE53242506FC00FDD894 /* UserDetailView.swift */,
+				43D5DE5F242581E100FDD894 /* UserCountView.swift */,
 			);
 			path = UserView;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				43D5DE5724250B9900FDD894 /* ImageView.swift in Sources */,
 				437F7F2C2422DCF800F51DAC /* Follow.swift in Sources */,
+				43D5DE60242581E100FDD894 /* UserCountView.swift in Sources */,
 				43D5DE5C2425366200FDD894 /* DefaultProfilePhotoView.swift in Sources */,
 				43D5DE50242506DE00FDD894 /* UserListView.swift in Sources */,
 				437F7F122422D90F00F51DAC /* AppDelegate.swift in Sources */,

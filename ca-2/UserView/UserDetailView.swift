@@ -17,26 +17,38 @@ struct UserDetailView: View {
     init(userId: String) {
         self.userId = userId
         self.userModel = UserModel(userId: userId)
-        
         self.hasLoaded = true
-        print("user!! \(userId)! \(String(describing: userModel.user?.name))")
     }
     
     var body: some View {
-        VStack {
-            ImageView(url: "\(photoUrl)\(userId)")
-            .frame(width: 100.0, height: 100.0)
+        VStack(alignment: .leading) {
             if (hasLoaded) {
-                Text("Hello \(userModel.user?.name ?? "No User")")
+                HStack {
+                    ImageView(url: "\(photoUrl)\(userId)")
+                    .frame(width: 100.0, height: 100.0)
+                    Spacer()
+                    HStack {
+                        UserCountView(count: userModel.countFollowers, text: "Followers")
+                        UserCountView(count: userModel.countFollowing, text: "Following")
+                        UserCountView(count: userModel.countFollowers, text: "Followers")
+                    }
+//                    Text("\(userModel.user!.name)")
+//                        .font(.largeTitle)
+//                        .padding(20)
+                    
+                }
+                .navigationBarTitle(Text(userModel.user!.name), displayMode: .inline)
+                .padding(40)
             } else {
                 Text("Loading...")
             }
+            Spacer()
         }
     }
 }
 
-//struct UserDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UserDetailView(userId: "")
-//    }
-//}
+struct UserDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        UserDetailView(userId: "")
+    }
+}

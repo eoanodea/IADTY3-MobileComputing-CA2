@@ -43,7 +43,7 @@ class UserModel: ObservableObject {
             if let data = data {
                 do{
                     let result = try JSONDecoder().decode(User.self, from: data)
-                
+
                     DispatchQueue.main.async {
                         self.user = result
                     }
@@ -52,5 +52,15 @@ class UserModel: ObservableObject {
                 }
             }
         }.resume()
+    }
+    
+    ///Returns the total number of followers
+    var countFollowers: Int {
+        return user!.followers.count
+    }
+    
+    ///Returns the total number of followers
+    var countFollowing: Int {
+        return user!.following.count
     }
 }
