@@ -14,18 +14,25 @@ import URLImage
 struct UserRowView: View {
     var userItem: Users
     var photoUrl = "\(baseUrl)users/photo/"
-    
+    var fileExists = false
+
     var body: some View {
         VStack {
             HStack {
-                ImageView(url: "\(photoUrl)\(userItem.id)", delay: 0.25)
+                if userItem.hasPhoto ?? true {
+                    ImageView(url: "\(photoUrl)\(userItem.id)")
                     .frame(width: 100.0, height: 100.0)
+                } else {
+                    ImageView()
+                    .frame(width: 100.0, height: 100.0)
+                }
                 Text(userItem.name)
                     .font(.headline)
                 Spacer()
             }
         }
     }
+    
 }
 
 struct UserRowView_Previews: PreviewProvider {

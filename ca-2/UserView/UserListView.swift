@@ -19,11 +19,11 @@ struct UserListView: View {
                         UserRowView(userItem: item)
                         .listRowInsets(EdgeInsets())
                     }
-                }
+                }.navigationBarTitle("Users")
             } else {
                 Text("Loading!").font(.headline)
             }
-        }.navigationBarTitle("Users")
+        }
     }
 }
 

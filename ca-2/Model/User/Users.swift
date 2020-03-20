@@ -12,10 +12,12 @@ struct Users:Codable,Identifiable{
     var id:String
     var name:String
     var created: String
+    var hasPhoto: Bool? = true
         
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case name
         case created
+        case hasPhoto
     }
 }
