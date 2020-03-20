@@ -13,6 +13,10 @@
 		437F7F182422D91000F51DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 437F7F172422D91000F51DAC /* Assets.xcassets */; };
 		437F7F1B2422D91000F51DAC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 437F7F1A2422D91000F51DAC /* Preview Assets.xcassets */; };
 		437F7F1E2422D91000F51DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 437F7F1C2422D91000F51DAC /* LaunchScreen.storyboard */; };
+		437F7F272422DBFF00F51DAC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F262422DBFE00F51DAC /* UserModel.swift */; };
+		437F7F2A2422DCF000F51DAC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F292422DCF000F51DAC /* User.swift */; };
+		437F7F2C2422DCF800F51DAC /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F2B2422DCF800F51DAC /* Follow.swift */; };
+		437F7F2E2422DE7600F51DAC /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F2D2422DE7600F51DAC /* Users.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		437F7F1A2422D91000F51DAC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		437F7F1D2422D91000F51DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		437F7F1F2422D91000F51DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		437F7F262422DBFE00F51DAC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		437F7F292422DCF000F51DAC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		437F7F2B2422DCF800F51DAC /* Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
+		437F7F2D2422DE7600F51DAC /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 		437F7F102422D90F00F51DAC /* ca-2 */ = {
 			isa = PBXGroup;
 			children = (
+				437F7F252422DBA800F51DAC /* Model */,
 				437F7F112422D90F00F51DAC /* AppDelegate.swift */,
 				437F7F132422D90F00F51DAC /* SceneDelegate.swift */,
 				437F7F152422D90F00F51DAC /* ContentView.swift */,
@@ -73,6 +82,25 @@
 				437F7F1A2422D91000F51DAC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		437F7F252422DBA800F51DAC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				437F7F282422DCD600F51DAC /* User */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		437F7F282422DCD600F51DAC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				437F7F292422DCF000F51DAC /* User.swift */,
+				437F7F2B2422DCF800F51DAC /* Follow.swift */,
+				437F7F2D2422DE7600F51DAC /* Users.swift */,
+				437F7F262422DBFE00F51DAC /* UserModel.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				437F7F2C2422DCF800F51DAC /* Follow.swift in Sources */,
 				437F7F122422D90F00F51DAC /* AppDelegate.swift in Sources */,
 				437F7F142422D90F00F51DAC /* SceneDelegate.swift in Sources */,
+				437F7F272422DBFF00F51DAC /* UserModel.swift in Sources */,
+				437F7F2A2422DCF000F51DAC /* User.swift in Sources */,
 				437F7F162422D90F00F51DAC /* ContentView.swift in Sources */,
+				437F7F2E2422DE7600F51DAC /* Users.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
