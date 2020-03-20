@@ -9,8 +9,6 @@
 import SwiftUI
 import URLImage
 
-//var baseUrl: String = Bundle.main.infoDictionary!["BASE_URL"] as! String
-
 struct UserRowView: View {
     var userItem: Users
     var photoUrl = "\(baseUrl)users/photo/"

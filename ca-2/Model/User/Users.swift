@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Users:Codable,Identifiable{
+struct Users:Codable, Identifiable{
     var id:String
     var name:String
     var created: String

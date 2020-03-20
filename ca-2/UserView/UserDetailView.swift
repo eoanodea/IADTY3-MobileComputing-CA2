@@ -9,14 +9,34 @@
 import SwiftUI
 
 struct UserDetailView: View {
-    var userItem: Users
+    var photoUrl = "\(baseUrl)users/photo/"
+    var userId: String = ""
+    var userModel: UserModel
+    var hasLoaded = false
+    
+    init(userId: String) {
+        self.userId = userId
+        self.userModel = UserModel(userId: userId)
+        
+        self.hasLoaded = true
+        print("user!! \(userId)! \(String(describing: userModel.user?.name))")
+    }
+    
     var body: some View {
-        Text("Hello, \(userItem.name)!")
+        VStack {
+            ImageView(url: "\(photoUrl)\(userId)")
+            .frame(width: 100.0, height: 100.0)
+            if (hasLoaded) {
+                Text("Hello \(userModel.user?.name ?? "No User")")
+            } else {
+                Text("Loading...")
+            }
+        }
     }
 }
 
-struct UserDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserDetailView(userItem: UsersModel().users[0])
-    }
-}
+//struct UserDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserDetailView(userId: "")
+//    }
+//}

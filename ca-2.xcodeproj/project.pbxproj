@@ -24,6 +24,7 @@
 		43D5DE5724250B9900FDD894 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5DE5624250B9900FDD894 /* ImageView.swift */; };
 		43D5DE5A24250D8400FDD894 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 43D5DE5924250D8400FDD894 /* URLImage */; };
 		43D5DE5C2425366200FDD894 /* DefaultProfilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5DE5B2425366200FDD894 /* DefaultProfilePhotoView.swift */; };
+		43D5DE5E2425673B00FDD894 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5DE5D2425673B00FDD894 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		43D5DE53242506FC00FDD894 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		43D5DE5624250B9900FDD894 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		43D5DE5B2425366200FDD894 /* DefaultProfilePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProfilePhotoView.swift; sourceTree = "<group>"; };
+		43D5DE5D2425673B00FDD894 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				437F7F2B2422DCF800F51DAC /* Follow.swift */,
 				437F7F2D2422DE7600F51DAC /* Users.swift */,
 				43D5DE4A2425046A00FDD894 /* UsersModel.swift */,
+				43D5DE5D2425673B00FDD894 /* UserModel.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				437F7F142422D90F00F51DAC /* SceneDelegate.swift in Sources */,
 				437F7F2A2422DCF000F51DAC /* User.swift in Sources */,
 				437F7F162422D90F00F51DAC /* ContentView.swift in Sources */,
+				43D5DE5E2425673B00FDD894 /* UserModel.swift in Sources */,
 				43D5DE52242506F400FDD894 /* UserRowView.swift in Sources */,
 				437F7F2E2422DE7600F51DAC /* Users.swift in Sources */,
 				43D5DE4B2425046A00FDD894 /* UsersModel.swift in Sources */,

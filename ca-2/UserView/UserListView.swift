@@ -15,13 +15,13 @@ struct UserListView: View {
         NavigationView{
             if(userList.total > 0) {
                 List(userList.users) { item in
-                    NavigationLink(destination: UserDetailView(userItem: item)) {
+                    NavigationLink(destination: UserDetailView(userId: item.id)) {
                         UserRowView(userItem: item)
                         .listRowInsets(EdgeInsets())
                     }
                 }.navigationBarTitle("Users")
             } else {
-                Text("Loading!").font(.headline)
+                Text("Loading...")
             }
         }
     }
