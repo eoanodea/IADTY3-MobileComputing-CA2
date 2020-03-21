@@ -40,7 +40,7 @@ struct PostImageView: View {
                 content: {
                         $0.image
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
+                            .aspectRatio(1, contentMode: .fill)
                             .shadow(radius: 10.0)
                 })
             }
