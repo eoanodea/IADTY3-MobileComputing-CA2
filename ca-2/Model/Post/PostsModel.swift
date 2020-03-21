@@ -1,5 +1,5 @@
 //
-//  UserModel.swift
+//  PostsModel.swift
 //  ca-2
 //
 //  Created by Eoan on 20/03/2020.
@@ -8,18 +8,25 @@
 
 import Foundation
 
-/// The Model for holding a single of User
-class UserModel: ObservableObject {
-    @Published var user: User?
+/// The Model for holding a list of Posts
+class PostsModel: ObservableObject {
+    @Published var posts: PostPagination?
+//    @Published var pagination: PostPagination?
     var userId:String
     
-    init(userId: String){
-        self.userId = userId
-        loadUser(userId: userId)
+    var getTotal: String {
+        return "\(posts?.total ?? 0)"
     }
     
-    func loadUser(userId: String) {
-        guard let url = URL(string: "\(baseUrl)user/\(self.userId)") else {
+    init(userId: String){
+        print("init post model")
+        self.userId = userId
+        loadData(userId: userId, skip: 0)
+    }
+    
+    func loadData(userId: String, skip: Int) {
+        print("running loadData! \(userId) \(skip)")
+        guard let url = URL(string: "\(baseUrl)posts/by/\(userId)/\(skip)") else {
             print("invalid url")
             return
         }
@@ -41,25 +48,15 @@ class UserModel: ObservableObject {
             //Runs after .resume() has been completed
             if let data = data {
                 do{
-                    let result = try JSONDecoder().decode(User.self, from: data)
-
+                    let result = try JSONDecoder().decode(PostPagination.self, from: data)
+                    print("got posts!! \(result)")
                     DispatchQueue.main.async {
-                        self.user = result
+                        self.posts = result
                     }
                 } catch let error as NSError{
                     print("Error reading JSON file: \(error)")
                 }
             }
         }.resume()
-    }
-    
-    ///Returns the total number of followers
-    var countFollowers: Int {
-        return user!.followers.count
-    }
-    
-    ///Returns the total number of followers
-    var countFollowing: Int {
-        return user!.following.count
     }
 }

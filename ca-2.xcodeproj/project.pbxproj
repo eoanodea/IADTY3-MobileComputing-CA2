@@ -26,6 +26,9 @@
 		43D5DE5C2425366200FDD894 /* DefaultProfilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5DE5B2425366200FDD894 /* DefaultProfilePhotoView.swift */; };
 		43D5DE5E2425673B00FDD894 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5DE5D2425673B00FDD894 /* UserModel.swift */; };
 		43D5DE60242581E100FDD894 /* UserCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5DE5F242581E100FDD894 /* UserCountView.swift */; };
+		43D5DE6324258AAB00FDD894 /* PostsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5DE6224258AAB00FDD894 /* PostsListView.swift */; };
+		43D5DE6624258B7E00FDD894 /* PostsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5DE6524258B7E00FDD894 /* PostsModel.swift */; };
+		43D5DE6824258B8D00FDD894 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5DE6724258B8D00FDD894 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,9 @@
 		43D5DE5B2425366200FDD894 /* DefaultProfilePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProfilePhotoView.swift; sourceTree = "<group>"; };
 		43D5DE5D2425673B00FDD894 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		43D5DE5F242581E100FDD894 /* UserCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCountView.swift; sourceTree = "<group>"; };
+		43D5DE6224258AAB00FDD894 /* PostsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListView.swift; sourceTree = "<group>"; };
+		43D5DE6524258B7E00FDD894 /* PostsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsModel.swift; sourceTree = "<group>"; };
+		43D5DE6724258B8D00FDD894 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,7 @@
 		437F7F102422D90F00F51DAC /* ca-2 */ = {
 			isa = PBXGroup;
 			children = (
+				43D5DE6124258A9A00FDD894 /* PostView */,
 				43D5DE5524250B8E00FDD894 /* Image */,
 				43D5DE4E242506CF00FDD894 /* UserView */,
 				437F7F252422DBA800F51DAC /* Model */,
@@ -108,6 +115,7 @@
 		437F7F252422DBA800F51DAC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				43D5DE6424258B6500FDD894 /* Post */,
 				437F7F282422DCD600F51DAC /* User */,
 			);
 			path = Model;
@@ -143,6 +151,23 @@
 				43D5DE5B2425366200FDD894 /* DefaultProfilePhotoView.swift */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		43D5DE6124258A9A00FDD894 /* PostView */ = {
+			isa = PBXGroup;
+			children = (
+				43D5DE6224258AAB00FDD894 /* PostsListView.swift */,
+			);
+			path = PostView;
+			sourceTree = "<group>";
+		};
+		43D5DE6424258B6500FDD894 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				43D5DE6724258B8D00FDD894 /* Post.swift */,
+				43D5DE6524258B7E00FDD894 /* PostsModel.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +253,7 @@
 				43D5DE5C2425366200FDD894 /* DefaultProfilePhotoView.swift in Sources */,
 				43D5DE50242506DE00FDD894 /* UserListView.swift in Sources */,
 				437F7F122422D90F00F51DAC /* AppDelegate.swift in Sources */,
+				43D5DE6624258B7E00FDD894 /* PostsModel.swift in Sources */,
 				437F7F142422D90F00F51DAC /* SceneDelegate.swift in Sources */,
 				437F7F2A2422DCF000F51DAC /* User.swift in Sources */,
 				437F7F162422D90F00F51DAC /* ContentView.swift in Sources */,
@@ -236,6 +262,8 @@
 				437F7F2E2422DE7600F51DAC /* Users.swift in Sources */,
 				43D5DE4B2425046A00FDD894 /* UsersModel.swift in Sources */,
 				43D5DE4D242504DC00FDD894 /* ListHeaderView.swift in Sources */,
+				43D5DE6824258B8D00FDD894 /* Post.swift in Sources */,
+				43D5DE6324258AAB00FDD894 /* PostsListView.swift in Sources */,
 				43D5DE54242506FC00FDD894 /* UserDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,10 +19,10 @@ struct UserRowView: View {
             HStack {
                 if userItem.hasPhoto ?? true {
                     ImageView(url: "\(photoUrl)\(userItem.id)")
-                    .frame(width: 100.0, height: 100.0)
+                    .frame(width: 50.0, height: 50.0)
                 } else {
                     ImageView()
-                    .frame(width: 100.0, height: 100.0)
+                    .frame(width: 50.0, height: 50.0)
                 }
                 Text(userItem.name)
                     .font(.headline)

@@ -11,6 +11,7 @@ import URLImage
 
 struct ImageView: View {
     var url:String = ""
+    var size:Int = 50
     
     var body: some View {
         ZStack {
@@ -22,17 +23,17 @@ struct ImageView: View {
                    ProgressView($0) { progress in
                        ZStack {
                            if (progress > 0.0 && progress < 1) {
-                               CircleProgressView(progress).stroke(lineWidth: 8.0)
+                               CircleProgressView(progress)
+                                .stroke(lineWidth: 5.0)
+                                .foregroundColor(Color(.red))
+                           } else if progress == 1 {
+                            DefaultProfilePhotoView(size: self.size)
+                           } else {
+                            CircleActivityView()
+                                .stroke(lineWidth: 4.0)
                                 .foregroundColor(Color(.red))
                            }
-                           else if progress == 1 {
-                                DefaultProfilePhotoView()
-                           }
-                           else {
-                               CircleActivityView().stroke(lineWidth: 50.0)
-                                .foregroundColor(Color(.red))
-                           }
-                        }
+                        }                        .animation(.easeIn(duration: 0.2))
                    }
                    .frame(width: 50.0, height: 50.0)
                 },
@@ -50,6 +51,6 @@ struct ImageView: View {
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageView(url: "")
+        ImageView(url: "", size: 50)
     }
 }

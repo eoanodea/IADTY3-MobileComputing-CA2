@@ -24,21 +24,19 @@ struct UserDetailView: View {
         VStack(alignment: .leading) {
             if (hasLoaded) {
                 HStack {
-                    ImageView(url: "\(photoUrl)\(userId)")
-                    .frame(width: 100.0, height: 100.0)
+                    ImageView(url: "\(photoUrl)\(userId)", size: 100)
+                        .frame(width: 100.0, height: 100.0)
                     Spacer()
                     HStack {
                         UserCountView(count: userModel.countFollowers, text: "Followers")
                         UserCountView(count: userModel.countFollowing, text: "Following")
                         UserCountView(count: userModel.countFollowers, text: "Followers")
                     }
-//                    Text("\(userModel.user!.name)")
-//                        .font(.largeTitle)
-//                        .padding(20)
                     
                 }
                 .navigationBarTitle(Text(userModel.user!.name), displayMode: .inline)
                 .padding(40)
+                PostsListView(userId: self.userId)
             } else {
                 Text("Loading...")
             }

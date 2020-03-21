@@ -9,15 +9,16 @@
 import SwiftUI
 
 struct DefaultProfilePhotoView: View {
+    var size:Int = 50
     var body: some View {
         Image(systemName: "person.circle.fill")
-            .font(.system(size: 80))
+            .font(.system(size: CGFloat(size)))
             .foregroundColor(Color(.red))
     }
 }
 
 struct DefaultProfilePhotoView_Previews: PreviewProvider {
     static var previews: some View {
-        DefaultProfilePhotoView()
+        DefaultProfilePhotoView(size: 50)
     }
 }
