@@ -8,25 +8,49 @@
 
 import SwiftUI
 import AVKit
+import WebKit
 
 struct PostVideoView: View {
     var url: String = ""
+    @State var isOpen: Bool = false
+
+    func openVideo() {
+        isOpen = true
+    }
     
     var body: some View {
         VStack {
             if(url == "") {
-                Text("No url")
+                PostRowVideoView(icon: "nosign")
             } else {
-                Text("Video")
-                VideoView(url: URL(string: "https://dev-the-locker-room.herokuapp.com/api/posts/video/5e5456f34971070017623a32")!)
+                Button(action: openVideo) {
+                    PostRowVideoView(icon: "play.circle")
+                }.sheet(isPresented: $isOpen) {
+                    WebView(request: URLRequest(url: URL(string: self.url)!))
+                }
+                    Spacer()
+                }
             }
             
-        }
     }
+}
+
+
+struct WebView: UIViewRepresentable {
+    let request: URLRequest
+    
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+    
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        uiView.load(request)
+    }
+
 }
 
 struct PostVideoView_Previews: PreviewProvider {
     static var previews: some View {
-        PostVideoView(url: "https://dev-the-locker-room.herokuapp.com/api/posts/video/5e5456f34971070017623a32.mp4")
+        PostVideoView(url: "")
     }
 }

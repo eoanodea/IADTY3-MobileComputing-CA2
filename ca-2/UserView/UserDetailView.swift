@@ -12,17 +12,15 @@ struct UserDetailView: View {
     var photoUrl = "\(baseUrl)users/photo/"
     var userId: String = ""
     var userModel: UserModel
-    var hasLoaded = false
     
     init(userId: String) {
         self.userId = userId
         self.userModel = UserModel(userId: userId)
-        self.hasLoaded = true
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            if (hasLoaded) {
+        ScrollView {
+            VStack {
                 HStack {
                     ImageView(url: "\(photoUrl)\(userId)", size: 100)
                         .frame(width: 100.0, height: 100.0)
@@ -30,18 +28,17 @@ struct UserDetailView: View {
                     HStack {
                         UserCountView(count: userModel.countFollowers, text: "Followers")
                         UserCountView(count: userModel.countFollowing, text: "Following")
-                        UserCountView(count: userModel.countFollowers, text: "Followers")
+                        UserCountView(count: userModel.countFollowers, text: "Posts")
                     }
-                    
                 }
                 .navigationBarTitle(Text(userModel.user!.name), displayMode: .inline)
                 .padding(40)
                 PostsListView(userId: self.userId)
-            } else {
-                Text("Loading...")
+
             }
-            Spacer()
         }
+        .padding(.top, 50)
+        .animation(.easeInOut)
     }
 }
 

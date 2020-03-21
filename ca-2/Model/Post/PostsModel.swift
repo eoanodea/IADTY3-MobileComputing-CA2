@@ -11,7 +11,7 @@ import Foundation
 /// The Model for holding a list of Posts
 class PostsModel: ObservableObject {
     @Published var pagination: PostPagination?
-    
+    var loading: Bool = true
     var userId:String
     
     var getTotalString: String {
@@ -29,7 +29,8 @@ class PostsModel: ObservableObject {
     }
     
     func loadData(userId: String, skip: Int) {
-        print("running loadData! \(userId) \(skip)")
+        self.loading = true
+        
         guard let url = URL(string: "\(baseUrl)posts/by/\(userId)/\(skip)") else {
             print("invalid url")
             return
@@ -69,6 +70,7 @@ class PostsModel: ObservableObject {
                     
                     DispatchQueue.main.async {
                         self.pagination = response
+                        self.loading = false
                     }
                 } catch let error as NSError{
                     print("Error reading JSON file: \(error)")

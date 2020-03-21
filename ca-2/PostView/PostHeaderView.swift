@@ -18,6 +18,9 @@ struct PostHeaderView: View {
                 ImageView(url: "\(photoUrl)\(postItem.postedBy.id)")
                     .frame(width: 40.0, height: 40.0)
                 Text(postItem.postedBy.name)
+                Spacer()
+                Text("Views: \(postItem.views)")
+                    .font(.caption)
             }.buttonStyle(PlainButtonStyle())
         }
     }

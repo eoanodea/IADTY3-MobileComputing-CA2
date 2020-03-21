@@ -23,8 +23,6 @@ struct VideoView: View {
         VideoPlayer.preload(urls: [url])
     }
     
-    func logStuff() {print("Time: \(time)Running with url \(url)")}
-    
 //    VideoPlayer
     
     var body: some View {
@@ -32,7 +30,8 @@ struct VideoView: View {
             VideoPlayer(url: url!, play: $play, time: $time)
             .autoReplay(autoReplay)
             .mute(mute)
-        }.onAppear(perform: logStuff)
+        }
+        
 //            .onStateChanged { _ in
 ////                print(_)
 //                switch state {

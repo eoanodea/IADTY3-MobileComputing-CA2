@@ -12,26 +12,28 @@ struct PostsListView: View {
     var userId:String = ""
     var skip:Int = 0
     @ObservedObject var postsModel: PostsModel
-    var hasLoaded = false
     
     init(userId: String) {
         self.userId = userId
         self.postsModel = PostsModel(userId: userId)
-        self.hasLoaded = true
     }
     
     var body: some View {
         VStack{
-            if(postsModel.getTotal > 0) {
+            if(postsModel.loading) {
+                Text("Loading..")
+            }
+            else if(postsModel.getTotal > 0) {
                 Text("Posts: \(postsModel.getTotalString)")
-                List(postsModel.pagination!.data) { item in
+                ForEach(postsModel.pagination!.data) { item in
                     NavigationLink(destination: PostDetailView(postItem: item)) {
                         PostsRowView(postItem: item)
                         .listRowInsets(EdgeInsets())
-                    }
+                    }.buttonStyle(PlainButtonStyle())
                 }.navigationBarTitle("Posts: \(postsModel.getTotal)")
+                
             } else {
-                Text("Loading..")
+                Text("User does not have any posts")
             }
         }
     }

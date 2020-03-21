@@ -17,16 +17,8 @@ struct PostsRowView: View {
             if(postItem.isPhoto) {
                 PostImageView(url: "\(postUrl)photo/\(postItem.id)")
                     .cornerRadius(5)
-                Text("Post!")
-                    .font(.caption)
             } else {
-                HStack(alignment: .center) {
-                    Spacer()
-                    Image(systemName: "video.fill")
-                        .font(.system(size: CGFloat(50)))
-                        .foregroundColor(.red)
-                    Spacer()
-                }.padding(30)
+                PostRowVideoView()
             }
             Text(postItem.text ?? "")
         }
@@ -39,3 +31,4 @@ struct PostsRowView_Previews: PreviewProvider {
         PostsRowView(postItem: (PostsModel(userId: "5debe5cf8a91070017921ebc").pagination?.data[0])!)
     }
 }
+
