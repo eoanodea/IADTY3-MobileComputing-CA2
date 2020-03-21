@@ -17,6 +17,7 @@
 		43047C1E24268C8100B0D4CF /* PostHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43047C1D24268C8000B0D4CF /* PostHeaderView.swift */; };
 		43047C2024268E3D00B0D4CF /* PostSocialIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43047C1F24268E3D00B0D4CF /* PostSocialIconView.swift */; };
 		43047C22242699EA00B0D4CF /* PostRowVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43047C21242699EA00B0D4CF /* PostRowVideoView.swift */; };
+		43047C242426A90F00B0D4CF /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43047C232426A90F00B0D4CF /* SearchBarView.swift */; };
 		437F7F122422D90F00F51DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F112422D90F00F51DAC /* AppDelegate.swift */; };
 		437F7F142422D90F00F51DAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F132422D90F00F51DAC /* SceneDelegate.swift */; };
 		437F7F162422D90F00F51DAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F152422D90F00F51DAC /* ContentView.swift */; };
@@ -51,6 +52,7 @@
 		43047C1D24268C8000B0D4CF /* PostHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderView.swift; sourceTree = "<group>"; };
 		43047C1F24268E3D00B0D4CF /* PostSocialIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSocialIconView.swift; sourceTree = "<group>"; };
 		43047C21242699EA00B0D4CF /* PostRowVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRowVideoView.swift; sourceTree = "<group>"; };
+		43047C232426A90F00B0D4CF /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		437F7F0E2422D90F00F51DAC /* ca-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ca-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		437F7F112422D90F00F51DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		437F7F132422D90F00F51DAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				43D5DE4F242506DE00FDD894 /* UserListView.swift */,
+				43047C232426A90F00B0D4CF /* SearchBarView.swift */,
 				43D5DE51242506F400FDD894 /* UserRowView.swift */,
 				43D5DE53242506FC00FDD894 /* UserDetailView.swift */,
 				43D5DE5F242581E100FDD894 /* UserCountView.swift */,
@@ -310,6 +313,7 @@
 				43047C2024268E3D00B0D4CF /* PostSocialIconView.swift in Sources */,
 				43D5DE4D242504DC00FDD894 /* ListHeaderView.swift in Sources */,
 				43D5DE6824258B8D00FDD894 /* Post.swift in Sources */,
+				43047C242426A90F00B0D4CF /* SearchBarView.swift in Sources */,
 				43D5DE6324258AAB00FDD894 /* PostsListView.swift in Sources */,
 				43047C132426558D00B0D4CF /* VideoView.swift in Sources */,
 				43D5DE54242506FC00FDD894 /* UserDetailView.swift in Sources */,

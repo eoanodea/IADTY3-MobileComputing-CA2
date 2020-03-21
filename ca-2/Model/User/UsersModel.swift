@@ -22,6 +22,16 @@ class UsersModel: ObservableObject {
         return users.count
     }
     
+    //Filters the users depending on the term provided
+    //If the term is empty, it returns all users
+    //If not, it will compare each user's name in lowercase format
+    //To the search term in lowercase format
+    func filterUsers(term: String) -> [Users]! {
+        if(term.isEmpty) {return users}
+        
+        return users.filter{ $0.name.lowercased().contains(term.lowercased()) };
+    }
+    
     func loadData() {
         guard let url = URL(string: "\(baseUrl)users") else {
             print("invalid url")

@@ -13,28 +13,31 @@ struct PostDetailView: View {
     var postUrl = "\(baseUrl)posts/"
     
     var body: some View {
-        VStack(alignment: .leading) {
-            PostHeaderView(postItem: postItem)
-            if(postItem.isPhoto) {
-                PostImageView(url: "\(postUrl)photo/\(postItem.id)")
-                    .cornerRadius(5)
-                
-            } else {
-                PostVideoView(url: "\(postUrl)video/\(postItem.id)")
+        ScrollView {
+            VStack(alignment: .leading) {
+                PostHeaderView(postItem: postItem)
+                if(postItem.isPhoto) {
+                    PostImageView(url: "\(postUrl)photo/\(postItem.id)")
+                        .cornerRadius(5)
+                    
+                } else {
+                    PostVideoView(url: "\(postUrl)video/\(postItem.id)")
+                }
+                PostSocialIconView()
+                HStack {
+                    NavigationLink(destination: UserDetailView(userId: postItem.postedBy.id)) {
+                    Text(postItem.postedBy.name)
+                        .bold()
+                    }.buttonStyle(PlainButtonStyle())
+                    Text(postItem.text ?? "")
+                        .font(.caption)
+                }
             }
-            PostSocialIconView()
-            HStack {
-                NavigationLink(destination: UserDetailView(userId: postItem.postedBy.id)) {
-                Text(postItem.postedBy.name)
-                    .bold()
-                }.buttonStyle(PlainButtonStyle())
-                Text(postItem.text ?? "")
-                    .font(.caption)
-            }
+
         }
-        .frame(width: 350.0, height: 100.0)
+        .padding(.top, 20)
+        .frame(width: 350.0)
         .navigationBarTitle(Text("Post"), displayMode: .inline)
-    
     }
 }
 
