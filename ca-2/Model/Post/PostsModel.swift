@@ -10,12 +10,16 @@ import Foundation
 
 /// The Model for holding a list of Posts
 class PostsModel: ObservableObject {
-    @Published var posts: PostPagination?
-//    @Published var pagination: PostPagination?
+    @Published var pagination: PostPagination?
+    
     var userId:String
     
-    var getTotal: String {
-        return "\(posts?.total ?? 0)"
+    var getTotalString: String {
+        return "\(self.getTotal)"
+    }
+    
+    var getTotal: Int {
+        return pagination?.total ?? 0
     }
     
     init(userId: String){
@@ -48,10 +52,23 @@ class PostsModel: ObservableObject {
             //Runs after .resume() has been completed
             if let data = data {
                 do{
-                    let result = try JSONDecoder().decode(PostPagination.self, from: data)
-                    print("got posts!! \(result)")
+                    
+                    let pageResult = try JSONDecoder().decode(PostPagination.self, from: data)
+                    var response: PostPagination
+                    
+                    if(skip == 0) {
+                        response = pageResult
+                    } else {
+                        response = self.pagination!
+                        for post in pageResult.data {
+                            response.data.append(post)
+                        }
+                    }
+                    
+                    print("Response! \(response)")
+                    
                     DispatchQueue.main.async {
-                        self.posts = result
+                        self.pagination = response
                     }
                 } catch let error as NSError{
                     print("Error reading JSON file: \(error)")

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct DefaultProfilePhotoView: View {
     var size:Int = 50
+    var iconName:String = "person.circle.fill"
     var body: some View {
         Image(systemName: "person.circle.fill")
             .font(.system(size: CGFloat(size)))
@@ -19,6 +20,6 @@ struct DefaultProfilePhotoView: View {
 
 struct DefaultProfilePhotoView_Previews: PreviewProvider {
     static var previews: some View {
-        DefaultProfilePhotoView(size: 50)
+        DefaultProfilePhotoView(size: 50, iconName: "person.circle.fill")
     }
 }

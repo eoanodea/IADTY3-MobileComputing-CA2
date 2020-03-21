@@ -1,22 +1,22 @@
 //
-//  ImageView.swift
+//  PostImageView.swift
 //  ca-2
 //
-//  Created by Eoan on 20/03/2020.
+//  Created by Eoan on 21/03/2020.
 //  Copyright © 2020 WebSpace. All rights reserved.
 //
 
 import SwiftUI
 import URLImage
 
-struct ImageView: View {
+struct PostImageView: View {
     var url:String = ""
-    var size:Int = 50
+    var size:Int = 100
     
     var body: some View {
         ZStack {
             if(url == "") {
-                DefaultProfilePhotoView()
+                DefaultProfilePhotoView(size: 150, iconName: "nosign")
             } else {
                 URLImage(URL(string: url)!,
                 placeholder: {
@@ -40,9 +40,7 @@ struct ImageView: View {
                 content: {
                         $0.image
                             .resizable()
-                            .clipShape(Circle())
                             .aspectRatio(contentMode: .fill)
-                            .overlay(Circle().stroke(Color.white, lineWidth: 2))
                             .shadow(radius: 10.0)
                 })
             }
@@ -50,8 +48,8 @@ struct ImageView: View {
     }
 }
 
-struct ImageView_Previews: PreviewProvider {
+struct PostImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageView(url: "", size: 50)
+        PostImageView()
     }
 }

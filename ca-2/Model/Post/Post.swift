@@ -12,28 +12,29 @@ struct Post: Codable, Identifiable {
     var id: String
     var views: Int
     var isPhoto: Bool
-    var comments = [Follow]()
+    var text: String?
+//    var comments = [Follow]()
     var created:String
-    var postedBy = [Follow]()
+    var postedBy: Follow
 
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case views
         case isPhoto
-        case comments
+        case text
+//        case follow
+//        case comments
         case created
         case postedBy
     }
 }
 
-struct PostPagination: Codable, Identifiable {
-    var id: ObjectIdentifier
-    
+struct PostPagination: Codable {
     var total: Int
     var hasMore: Bool
     var pageSize: Int
-//    var data = [Post]()
+    var data = [Post]()
     
     enum CodingKeys: String, CodingKey {
         case total

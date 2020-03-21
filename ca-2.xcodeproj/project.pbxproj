@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43047C0C242641D900B0D4CF /* PostsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43047C0B242641D900B0D4CF /* PostsRowView.swift */; };
+		43047C0E24264C5B00B0D4CF /* PostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43047C0D24264C5B00B0D4CF /* PostImageView.swift */; };
+		43047C1124264E6300B0D4CF /* PostVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43047C1024264E6300B0D4CF /* PostVideoView.swift */; };
+		43047C132426558D00B0D4CF /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43047C122426558D00B0D4CF /* VideoView.swift */; };
+		43047C1824265B6F00B0D4CF /* VideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 43047C1724265B6F00B0D4CF /* VideoPlayer */; };
+		43047C1A24265EAC00B0D4CF /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43047C1924265EAC00B0D4CF /* PostDetailView.swift */; };
+		43047C1C24266C4E00B0D4CF /* VideoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43047C1B24266C4D00B0D4CF /* VideoLoader.swift */; };
 		437F7F122422D90F00F51DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F112422D90F00F51DAC /* AppDelegate.swift */; };
 		437F7F142422D90F00F51DAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F132422D90F00F51DAC /* SceneDelegate.swift */; };
 		437F7F162422D90F00F51DAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F152422D90F00F51DAC /* ContentView.swift */; };
@@ -32,6 +39,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43047C0B242641D900B0D4CF /* PostsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRowView.swift; sourceTree = "<group>"; };
+		43047C0D24264C5B00B0D4CF /* PostImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageView.swift; sourceTree = "<group>"; };
+		43047C1024264E6300B0D4CF /* PostVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVideoView.swift; sourceTree = "<group>"; };
+		43047C122426558D00B0D4CF /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		43047C1924265EAC00B0D4CF /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		43047C1B24266C4D00B0D4CF /* VideoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLoader.swift; sourceTree = "<group>"; };
 		437F7F0E2422D90F00F51DAC /* ca-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ca-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		437F7F112422D90F00F51DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		437F7F132422D90F00F51DAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,12 +76,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				43D5DE5A24250D8400FDD894 /* URLImage in Frameworks */,
+				43047C1824265B6F00B0D4CF /* VideoPlayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43047C0F24264E5500B0D4CF /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				43047C1024264E6300B0D4CF /* PostVideoView.swift */,
+				43047C122426558D00B0D4CF /* VideoView.swift */,
+				43047C1B24266C4D00B0D4CF /* VideoLoader.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		437F7F052422D90F00F51DAC = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +112,7 @@
 		437F7F102422D90F00F51DAC /* ca-2 */ = {
 			isa = PBXGroup;
 			children = (
+				43047C0F24264E5500B0D4CF /* Video */,
 				43D5DE6124258A9A00FDD894 /* PostView */,
 				43D5DE5524250B8E00FDD894 /* Image */,
 				43D5DE4E242506CF00FDD894 /* UserView */,
@@ -149,6 +174,7 @@
 			children = (
 				43D5DE5624250B9900FDD894 /* ImageView.swift */,
 				43D5DE5B2425366200FDD894 /* DefaultProfilePhotoView.swift */,
+				43047C0D24264C5B00B0D4CF /* PostImageView.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -157,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				43D5DE6224258AAB00FDD894 /* PostsListView.swift */,
+				43047C0B242641D900B0D4CF /* PostsRowView.swift */,
+				43047C1924265EAC00B0D4CF /* PostDetailView.swift */,
 			);
 			path = PostView;
 			sourceTree = "<group>";
@@ -188,6 +216,7 @@
 			name = "ca-2";
 			packageProductDependencies = (
 				43D5DE5924250D8400FDD894 /* URLImage */,
+				43047C1724265B6F00B0D4CF /* VideoPlayer */,
 			);
 			productName = "ca-2";
 			productReference = 437F7F0E2422D90F00F51DAC /* ca-2.app */;
@@ -219,6 +248,7 @@
 			mainGroup = 437F7F052422D90F00F51DAC;
 			packageReferences = (
 				43D5DE5824250D8300FDD894 /* XCRemoteSwiftPackageReference "url-image" */,
+				43047C1624265B6F00B0D4CF /* XCRemoteSwiftPackageReference "VideoPlayer" */,
 			);
 			productRefGroup = 437F7F0F2422D90F00F51DAC /* Products */;
 			projectDirPath = "";
@@ -249,21 +279,27 @@
 			files = (
 				43D5DE5724250B9900FDD894 /* ImageView.swift in Sources */,
 				437F7F2C2422DCF800F51DAC /* Follow.swift in Sources */,
+				43047C1C24266C4E00B0D4CF /* VideoLoader.swift in Sources */,
 				43D5DE60242581E100FDD894 /* UserCountView.swift in Sources */,
 				43D5DE5C2425366200FDD894 /* DefaultProfilePhotoView.swift in Sources */,
 				43D5DE50242506DE00FDD894 /* UserListView.swift in Sources */,
 				437F7F122422D90F00F51DAC /* AppDelegate.swift in Sources */,
 				43D5DE6624258B7E00FDD894 /* PostsModel.swift in Sources */,
+				43047C1124264E6300B0D4CF /* PostVideoView.swift in Sources */,
 				437F7F142422D90F00F51DAC /* SceneDelegate.swift in Sources */,
 				437F7F2A2422DCF000F51DAC /* User.swift in Sources */,
+				43047C1A24265EAC00B0D4CF /* PostDetailView.swift in Sources */,
 				437F7F162422D90F00F51DAC /* ContentView.swift in Sources */,
+				43047C0E24264C5B00B0D4CF /* PostImageView.swift in Sources */,
 				43D5DE5E2425673B00FDD894 /* UserModel.swift in Sources */,
 				43D5DE52242506F400FDD894 /* UserRowView.swift in Sources */,
+				43047C0C242641D900B0D4CF /* PostsRowView.swift in Sources */,
 				437F7F2E2422DE7600F51DAC /* Users.swift in Sources */,
 				43D5DE4B2425046A00FDD894 /* UsersModel.swift in Sources */,
 				43D5DE4D242504DC00FDD894 /* ListHeaderView.swift in Sources */,
 				43D5DE6824258B8D00FDD894 /* Post.swift in Sources */,
 				43D5DE6324258AAB00FDD894 /* PostsListView.swift in Sources */,
+				43047C132426558D00B0D4CF /* VideoView.swift in Sources */,
 				43D5DE54242506FC00FDD894 /* UserDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +496,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		43047C1624265B6F00B0D4CF /* XCRemoteSwiftPackageReference "VideoPlayer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wxxsw/VideoPlayer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
 		43D5DE5824250D8300FDD894 /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
@@ -471,6 +515,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		43047C1724265B6F00B0D4CF /* VideoPlayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43047C1624265B6F00B0D4CF /* XCRemoteSwiftPackageReference "VideoPlayer" */;
+			productName = VideoPlayer;
+		};
 		43D5DE5924250D8400FDD894 /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 43D5DE5824250D8300FDD894 /* XCRemoteSwiftPackageReference "url-image" */;

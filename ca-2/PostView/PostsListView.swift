@@ -11,7 +11,7 @@ import SwiftUI
 struct PostsListView: View {
     var userId:String = ""
     var skip:Int = 0
-    var postsModel: PostsModel
+    @ObservedObject var postsModel: PostsModel
     var hasLoaded = false
     
     init(userId: String) {
@@ -20,11 +20,19 @@ struct PostsListView: View {
         self.hasLoaded = true
     }
     
-    
     var body: some View {
-        VStack {
-            Text("Hello, World! \(userId)")
-            Text("Posts: \(postsModel.getTotal)")
+        VStack{
+            if(postsModel.getTotal > 0) {
+                Text("Posts: \(postsModel.getTotalString)")
+                List(postsModel.pagination!.data) { item in
+                    NavigationLink(destination: PostDetailView(postItem: item)) {
+                        PostsRowView(postItem: item)
+                        .listRowInsets(EdgeInsets())
+                    }
+                }.navigationBarTitle("Posts: \(postsModel.getTotal)")
+            } else {
+                Text("Loading..")
+            }
         }
     }
 }
