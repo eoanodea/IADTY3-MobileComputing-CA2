@@ -13,6 +13,7 @@ class PostsModel: ObservableObject {
     @Published var pagination: PostPagination?
     var loading: Bool = true
     var userId:String
+    var skip:Int = 0
     
     var getTotalString: String {
         return "\(self.getTotal)"
@@ -23,9 +24,22 @@ class PostsModel: ObservableObject {
     }
     
     init(userId: String){
-        print("init post model")
         self.userId = userId
         loadData(userId: userId, skip: 0)
+    }
+    
+    //Checks is a post is the last in the array
+    //And if there are more posts on the server
+    //If so will incrementally fetch posts until there are none left
+    func fetchMore(postId: String) {
+        if(self.pagination!.hasMore) {
+            for (idx, post) in (self.pagination?.data.enumerated())! {
+                if (idx == ((self.pagination?.data.endIndex)!-1) && post.id == postId) {
+                    let skip = self.skip + 2
+                    loadData(userId: self.userId, skip: skip)
+                }
+            }
+        }
     }
     
     func loadData(userId: String, skip: Int) {
@@ -35,24 +49,24 @@ class PostsModel: ObservableObject {
             print("invalid url")
             return
         }
-
+        
         let request = URLRequest(url: url)
         
         /**
-            Creates a networking task from the url request
-            Takes three parameters:
-
-             `data` - returned from request
-             `response` - description of data, status, weight etc
-             `error` - if an error had occured
-
-             .resume ensures the request starts immediately in the background
-                and is controlled by the system
+         Creates a networking task from the url request
+         Takes three parameters:
+         
+         `data` - returned from request
+         `response` - description of data, status, weight etc
+         `error` - if an error had occured
+         
+         .resume ensures the request starts immediately in the background
+         and is controlled by the system
          */
         URLSession.shared.dataTask(with: request) { data, response, error in
             //Runs after .resume() has been completed
             if let data = data {
-                do{
+                do {
                     
                     let pageResult = try JSONDecoder().decode(PostPagination.self, from: data)
                     var response: PostPagination
@@ -61,14 +75,14 @@ class PostsModel: ObservableObject {
                         response = pageResult
                     } else {
                         response = self.pagination!
+                        response.hasMore = pageResult.hasMore
                         for post in pageResult.data {
                             response.data.append(post)
                         }
                     }
                     
-                    print("Response! \(response)")
-                    
                     DispatchQueue.main.async {
+                        self.skip = skip
                         self.pagination = response
                         self.loading = false
                     }

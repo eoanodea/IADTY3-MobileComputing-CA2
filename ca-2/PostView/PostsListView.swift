@@ -27,7 +27,7 @@ struct PostsListView: View {
                 Text("Posts: \(postsModel.getTotalString)")
                 ForEach(postsModel.pagination!.data) { item in
                     NavigationLink(destination: PostDetailView(postItem: item)) {
-                        PostsRowView(postItem: item)
+                        PostsRowView(postItem: item, model: self.postsModel)
                         .listRowInsets(EdgeInsets())
                     }.buttonStyle(PlainButtonStyle())
                 }.navigationBarTitle("Posts: \(postsModel.getTotal)")

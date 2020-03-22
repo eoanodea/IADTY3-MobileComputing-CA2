@@ -12,10 +12,10 @@ struct PostSocialIconView: View {
     var body: some View {
         HStack {
             Image(systemName: "heart")
-                .font(.title)
+                .font(.largeTitle)
                 .padding(5)
             Image(systemName: "bubble.right")
-                .font(.title)
+                .font(.largeTitle)
                 .padding(5)
         }.padding(10)
     }

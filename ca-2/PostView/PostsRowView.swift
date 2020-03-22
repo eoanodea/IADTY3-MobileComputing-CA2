@@ -11,6 +11,13 @@ import SwiftUI
 struct PostsRowView: View {
     var postItem: Post
     var postUrl = "\(baseUrl)posts/"
+    @ObservedObject var postsModel: PostsModel
+    
+    init(postItem: Post, model: PostsModel) {
+        self.postItem = postItem
+        self.postsModel = model
+        self.postsModel.fetchMore(postId: postItem.id)
+    }
     
     var body: some View {
         VStack {
@@ -28,7 +35,7 @@ struct PostsRowView: View {
 
 struct PostsRowView_Previews: PreviewProvider {
     static var previews: some View {
-        PostsRowView(postItem: (PostsModel(userId: "5debe5cf8a91070017921ebc").pagination?.data[0])!)
+        PostsRowView(postItem: (PostsModel(userId: "5debe5cf8a91070017921ebc").pagination?.data[0])!, model: PostsModel(userId: "5debe5cf8a91070017921ebc"))
     }
 }
 
