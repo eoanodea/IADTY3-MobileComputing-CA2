@@ -11,11 +11,12 @@ import SwiftUI
 struct PostDetailView: View {
     var postItem: Post
     var postUrl = "\(baseUrl)posts/"
+    @ObservedObject var likesModel: LikesModel
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                PostHeaderView(postItem: postItem)
+                PostHeaderView(postItem: postItem, likesModel: likesModel)
                 if(postItem.isPhoto) {
                     PostImageView(url: "\(postUrl)photo/\(postItem.id)")
                         .cornerRadius(5)
@@ -23,8 +24,8 @@ struct PostDetailView: View {
                 } else {
                     PostVideoView(url: "\(postUrl)video/\(postItem.id)")
                 }
-                PostSocialIconView(postItem: postItem)
-                PostPostedByInfoView(postItem: postItem)
+                PostSocialIconView(postItem: postItem, likesModel: likesModel)
+                PostPostedByInfoView(postItem: postItem, likesModel: likesModel)
             }
 
         }
@@ -36,7 +37,7 @@ struct PostDetailView: View {
 
 struct PostDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PostDetailView(postItem: (PostsModel(userId: "5debe5cf8a91070017921ebc").pagination?.data[0])!)
+        PostDetailView(postItem: (PostsModel(userId: "5debe5cf8a91070017921ebc").pagination?.data[0])!, likesModel: LikesModel())
     }
 }
 

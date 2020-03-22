@@ -10,30 +10,34 @@ import SwiftUI
 
 struct PostSocialIconView: View {
     var postItem: Post
-    @State var liked: Bool = false
     @ObservedObject var likesModel: LikesModel
 
-    init(postItem: Post) {
+    init(postItem: Post, likesModel: LikesModel) {
         self.postItem = postItem
-        self.likesModel = LikesModel()
+        self.likesModel = likesModel
     }
     
     func likePost() {
         if(!likesModel.checkLike(postId: postItem.id)) {
+            print("liking post")
             likesModel.addLike(postId: postItem.id)
         } else {
+            print("Unliking post!")
             likesModel.removeLike(postId: postItem.id)
         }
-        
-        
     }
     
     var body: some View {
-        HStack {
+        let isLiked:Bool = likesModel.checkLike(postId: postItem.id)
+        print("Isliked \(isLiked)")
+        return HStack {
             Button(action: likePost) {
-                Image(systemName: likesModel.checkLike(postId: postItem.id) ? "heart.fill" : "heart")
-                    .font(.largeTitle)
-                    .padding(5)
+                Image(systemName: isLiked
+                    ? "heart.fill"
+                    : "heart"
+                )
+                .font(.largeTitle)
+                .padding(5)
             }.buttonStyle(PlainButtonStyle())
         }.padding(10)
     }
@@ -42,6 +46,6 @@ struct PostSocialIconView: View {
 
 struct PostSocialIconView_Previews: PreviewProvider {
     static var previews: some View {
-        PostSocialIconView(postItem: (PostsModel(userId: "5debe5cf8a91070017921ebc").pagination?.data[0])!)
+        PostSocialIconView(postItem: (PostsModel(userId: "5debe5cf8a91070017921ebc").pagination?.data[0])!, likesModel: LikesModel())
     }
 }

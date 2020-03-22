@@ -8,35 +8,46 @@
 
 import Foundation
 
+//KeyOne is the key of which the likes array is stored under
 struct Like {
     static let keyOne = "likedPosts"
 }
 
+/**
+     LikesModel()
+     Class which represents and handles all logic with the Like system
+     
+     Likes are stored persistantly in the devices storage, and will fetch a list
+     of posts associated with this array
+ */
 class LikesModel: ObservableObject {
     @Published var likes: [String] = []
     @Published var posts = [Post]()
-    var loading: Bool = true
+    var loading: Bool = false
     
     let defaults = UserDefaults.standard
     
+    //Gets all likes from storage on init of class
     init() {
-//        self.addTestData()
         self.getAllLikes()
     }
     
+    //
     func getLikedPosts() {
         if(self.getTotal > 0) {
-            self.loading = true
             for like in likes {
-                print("Fetching post with \(like)")
-                self.loadPost(postId: like)
+                let posts = self.posts
+                let filteredPosts = posts.filter{ $0.id == like }.count
+                if(filteredPosts < 1) {
+                    print("Fetching post with \(like) \(filteredPosts)")
+                    self.loadPost(postId: like)
+                }
             }
-            self.loading = false
         }
     }
     
     var getTotal: Int {
-        return likes.count
+        return posts.count
     }
     
     var getTotalString: String {
@@ -47,21 +58,20 @@ class LikesModel: ObservableObject {
         if let decoded  = defaults.object(forKey: Like.keyOne) as? Data {
             if let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: decoded) {
                     self.likes = decodedTeams as! [String]
+                    self.getLikedPosts()
             }
         }
     }
     
     func checkLike(postId: String) -> Bool {
-        let likes = self.likes
         let filteredLikes = likes.filter{ $0 == postId }
-        let result = filteredLikes.count > 0 ? true : false
-
-        return result
+        return filteredLikes.count > 0 ? true : false
     }
     
     func addLike(postId: String) {
         var likes = self.likes
         likes.append(postId)
+        print("Adding like \(likes.count) \(self.likes.count)")
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: likes)
         defaults.set(encodedData, forKey: Like.keyOne)
         self.likes = likes
@@ -75,21 +85,27 @@ class LikesModel: ObservableObject {
     }
     
     func removeLike(postId: String) {
-        let likes = self.likes
-        let resultLikes = likes.filter{ $0 != postId }
+        let newLikes = self.likes
+        let resultLikes = newLikes.filter{ $0 != postId }
+        print("Removing like \(likes.count) \(resultLikes.count)")
+        
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: resultLikes)
         defaults.set(encodedData, forKey: Like.keyOne)
-        self.likes = likes
+        self.removePost(postId: postId)
+        likes = newLikes
     }
     
     func removePost(postId: String) {
-        let posts = self.posts
-        let resutPosts = posts.filter{ $0.id != postId }
+        let newPosts = self.posts
+        let resutPosts = newPosts.filter{ $0.id != postId }
+        print("Post has been removed old: \(newPosts.count) new: \(resutPosts.count)")
         self.posts = resutPosts
     }
     
     func loadPost(postId: String) {
-        
+        let resutPosts = posts.filter{ $0.id == postId }.count
+        print("Checking if post exists first! \(resutPosts)")
+        if(resutPosts > 0) {return}
         guard let url = URL(string: "\(baseUrl)posts/\(postId)/") else {
             print("invalid url")
             return

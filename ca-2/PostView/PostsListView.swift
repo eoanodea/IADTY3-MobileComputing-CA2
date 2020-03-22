@@ -12,22 +12,23 @@ struct PostsListView: View {
     var userId:String = ""
     var skip:Int = 0
     @ObservedObject var postsModel: PostsModel
+    @ObservedObject var likesModel: LikesModel
     
-    init(userId: String) {
+    init(userId: String, likesModel: LikesModel) {
         self.userId = userId
         self.postsModel = PostsModel(userId: userId)
+        self.likesModel = likesModel
     }
         
     var body: some View {
         VStack{
             if(postsModel.loading) {
                 Text("Loading..")
-            }
-            else if(postsModel.getTotal > 0) {
+            } else if(postsModel.getTotal > 0) {
                 Text("Posts: \(postsModel.getTotalString)")
                 ForEach(postsModel.pagination!.data) { item in
-                    NavigationLink(destination: PostDetailView(postItem: item)) {
-                        PostsRowView(postItem: item, model: self.postsModel)
+                    NavigationLink(destination: PostDetailView(postItem: item, likesModel: self.likesModel)) {
+                        PostsRowView(postItem: item, model: self.postsModel, likesModel: self.likesModel)
                         .listRowInsets(EdgeInsets())
                     }.buttonStyle(PlainButtonStyle())
                 }.navigationBarTitle("Posts: \(postsModel.getTotal)")
@@ -41,6 +42,6 @@ struct PostsListView: View {
 
 struct PostsListView_Previews: PreviewProvider {
     static var previews: some View {
-        PostsListView(userId: "")
+        PostsListView(userId: "", likesModel: LikesModel())
     }
 }

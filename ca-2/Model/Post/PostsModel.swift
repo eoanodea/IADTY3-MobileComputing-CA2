@@ -11,7 +11,7 @@ import Foundation
 /// The Model for holding a list of Posts
 class PostsModel: ObservableObject {
     @Published var pagination: PostPagination?
-    var loading: Bool = true
+    var loading: Bool = false
     var userId:String
     var skip:Int = 0
     

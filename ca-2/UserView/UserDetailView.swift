@@ -12,10 +12,12 @@ struct UserDetailView: View {
     var photoUrl = "\(baseUrl)users/photo/"
     var userId: String = ""
     var userModel: UserModel
+    @ObservedObject var likesModel: LikesModel
     
-    init(userId: String) {
+    init(userId: String, likesModel: LikesModel) {
         self.userId = userId
         self.userModel = UserModel(userId: userId)
+        self.likesModel = likesModel
     }
     
     var body: some View {
@@ -30,9 +32,9 @@ struct UserDetailView: View {
                         UserCountView(count: userModel.countFollowing, text: "Following")
                     }
                 }
-                .navigationBarTitle(Text(userModel.user!.name), displayMode: .inline)
+                .navigationBarTitle(Text(userModel.user?.name ?? "User"), displayMode: .inline)
                 .padding(40)
-                PostsListView(userId: self.userId)
+                PostsListView(userId: self.userId, likesModel: likesModel)
 
             }
         }
@@ -43,6 +45,6 @@ struct UserDetailView: View {
 
 struct UserDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        UserDetailView(userId: "")
+        UserDetailView(userId: "", likesModel: LikesModel())
     }
 }

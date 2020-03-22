@@ -8,15 +8,20 @@
 
 import SwiftUI
 
+/**
+    Root View for the entire application
+*/
 struct ContentView: View {
+    @ObservedObject var likesModel: LikesModel
+
     var body: some View {
         TabView {
-            UserListView()
+            UserListView(likesModel: likesModel)
                 .tabItem {
                     Image(systemName: "person.fill")
                     Text("Users")
             }
-            LikedPostsListView()
+            LikedPostsListView(likesModel: likesModel)
                 .tabItem {
                     Image(systemName: "heart.fill")
                     Text("Favourite Posts")
@@ -27,6 +32,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(likesModel: LikesModel())
     }
 }

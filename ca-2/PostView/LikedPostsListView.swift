@@ -11,30 +11,28 @@ import SwiftUI
 struct LikedPostsListView: View {
     @ObservedObject var likesModel: LikesModel
     
-    init() {
-        self.likesModel = LikesModel()
-        self.likesModel.getLikedPosts()
+    init(likesModel: LikesModel) {
+        self.likesModel = likesModel
     }
     
     var body: some View {
-        NavigationView{
-            VStack{
-                if(likesModel.loading) {
-                    Text("Loading..")
-                }
-                else if(likesModel.getTotal > 0) {
+        VStack{
+            if(likesModel.loading) {
+                Text("Loading..")
+            }
+            else if(likesModel.getTotal > 0) {
+                NavigationView{
                     ScrollView {
                         ForEach(likesModel.posts) { item in
-                            NavigationLink(destination: PostDetailView(postItem: item)) {
-                                LikedPostsRowView(postItem: item)
-                                .listRowInsets(EdgeInsets())
+                            NavigationLink(destination: PostDetailView(postItem: item, likesModel: self.likesModel)) {
+                                LikedPostsRowView(postItem: item, likesModel: self.likesModel)
+                                    .listRowInsets(EdgeInsets())
                             }.buttonStyle(PlainButtonStyle())
                         }.navigationBarTitle("Liked Posts: \(likesModel.getTotal)")
                     }
-                    
-                } else {
-                    Text("You have not liked any posts")
                 }
+            } else {
+                Text("You have not liked any posts")
             }
         }
     }
@@ -42,6 +40,6 @@ struct LikedPostsListView: View {
 
 struct LikedPostsListView_Previews: PreviewProvider {
     static var previews: some View {
-        LikedPostsListView()
+        LikedPostsListView(likesModel: LikesModel())
     }
 }

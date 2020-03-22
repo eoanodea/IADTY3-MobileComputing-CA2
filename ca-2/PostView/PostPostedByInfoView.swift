@@ -10,14 +10,14 @@ import SwiftUI
 
 struct PostPostedByInfoView: View {
     var postItem: Post
-
+    @ObservedObject var likesModel: LikesModel
     let today = Date()
     
 
     var body: some View {
-        VStack{
+        VStack {
             HStack {
-                NavigationLink(destination: UserDetailView(userId: postItem.postedBy.id)) {
+                NavigationLink(destination: UserDetailView(userId: postItem.postedBy.id, likesModel: likesModel.self)) {
                 Text(postItem.postedBy.name)
                     .bold()
                 }.buttonStyle(PlainButtonStyle())
@@ -45,6 +45,6 @@ extension Date
 
 struct PostPostedByInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        PostPostedByInfoView(postItem: (PostsModel(userId: "5debe5cf8a91070017921ebc").pagination?.data[0])!)
+        PostPostedByInfoView(postItem: (PostsModel(userId: "5debe5cf8a91070017921ebc").pagination?.data[0])!, likesModel: LikesModel())
     }
 }
