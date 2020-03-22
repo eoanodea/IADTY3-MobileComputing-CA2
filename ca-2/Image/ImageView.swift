@@ -9,6 +9,10 @@
 import SwiftUI
 import URLImage
 
+//Dynamically displays an iamge by taking in a URL of said image
+//Can also dynamically change it's size depending on props being passed
+//The view also provides progress and activity indicators to the user
+//While the image is being downloaded
 struct ImageView: View {
     var url:String = ""
     var size:Int = 50
@@ -33,7 +37,8 @@ struct ImageView: View {
                                 .stroke(lineWidth: 4.0)
                                 .foregroundColor(Color(.red))
                            }
-                        }                        .animation(.easeIn(duration: 0.2))
+                        }
+                       .animation(.easeIn(duration: 0.2))
                    }
                    .frame(width: 50.0, height: 50.0)
                 },

@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+   Comment
+   Represents a Comment object within a Post
+*/
 struct Comment: Codable, Identifiable {
     var id: String
     var created:String

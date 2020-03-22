@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+    Post
+    Represents a Post object fetched from the server
+ */
 struct Post: Codable, Identifiable {
     var id: String
     var views: Int
@@ -18,15 +22,14 @@ struct Post: Codable, Identifiable {
     var created:String
     var postedBy: Follow
 
-
+    //Because the Post object on the server has a key value of _id,
+    //We need to let swift know of this and to convert it to id
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case views
         case isPhoto
         case text
         case likes
-//        case follow
-//        case comments
         case created
         case postedBy
     }

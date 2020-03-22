@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+/*
+    The videoView of a post within a list
+    only contains an icon and link to the post detail
+*/
 struct PostRowVideoView: View {
     var icon: String = "video.fill"
     

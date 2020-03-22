@@ -12,17 +12,28 @@ import SwiftUI
  View for displaying a list of users
  */
 struct UserListView: View {
+    //Observed objects are essentially watched data
+    //They will update in realtime as the Model Updates it
     @ObservedObject var userList = UsersModel()
-    @State private var searchTerm:String = ""
     @ObservedObject var likesModel: LikesModel
+    
+    //The state object handles the textfield input
+    //for the search box.
+    //This is bound to the render and will update and filter
+    //Users in real time
+    @State private var searchTerm:String = ""
     
     init(likesModel: LikesModel) {
         self.likesModel = likesModel
     }
     
     var body: some View {
+        //Filtered users from the userModel, with the searchTerm passed
+        //As a parameter
         let filteredUsers = userList.filterUsers(term: searchTerm)
         
+        //Navigation view handles the list-detail type
+        //of control provided on this page
         return NavigationView{
             VStack {
                 if(userList.total > 0) {
@@ -46,6 +57,9 @@ struct UserListView_Previews: PreviewProvider {
     }
 }
 
+//This represents a Row within the list,
+//it simply displays the row and will navigate to the
+//detail page of that row, passing all parameters with it
 struct UserListRowNavigation: View {
     var item: Users
     @ObservedObject var likesModel: LikesModel

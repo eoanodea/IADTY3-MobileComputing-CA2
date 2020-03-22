@@ -9,6 +9,10 @@
 import SwiftUI
 import URLImage
 
+/**
+    A single user row within a list
+    displays the users name and photo / default photo
+ */
 struct UserRowView: View {
     var userItem: Users
     var photoUrl = "\(baseUrl)users/photo/"

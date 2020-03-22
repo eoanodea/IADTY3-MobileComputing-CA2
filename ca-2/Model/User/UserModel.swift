@@ -8,16 +8,24 @@
 
 import Foundation
 
-/// The Model for holding a single of User
+/**
+    UsersModel()
+    Class which represents and handles all logic with a single User
+    
+    Fetches a user from the database and can only be initialized with a
+    userId
+*/
 class UserModel: ObservableObject {
     @Published var user: User?
     var userId:String
     
+    //Initializes the Model with a user's ID
     init(userId: String){
         self.userId = userId
         loadUser(userId: userId)
     }
     
+    //Loads an array of users from the server asyncronously
     func loadUser(userId: String) {
         guard let url = URL(string: "\(baseUrl)user/\(self.userId)") else {
             print("invalid url")
@@ -58,7 +66,7 @@ class UserModel: ObservableObject {
         return user?.followers.count ?? 0
     }
     
-    ///Returns the total number of followers
+    ///Returns the total number of followering
     var countFollowing: Int {
         return user?.following.count ?? 0
     }

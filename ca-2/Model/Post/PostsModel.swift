@@ -8,21 +8,31 @@
 
 import Foundation
 
-/// The Model for holding a list of Posts
+/**
+    PostsModel()
+    Class which represents and handles all logic with the Post system
+    
+    Fetches posts from the database and can only be initialized with a
+     userId
+*/
 class PostsModel: ObservableObject {
     @Published var pagination: PostPagination?
     var loading: Bool = false
     var userId:String
     var skip:Int = 0
     
+    //Returns the total number of posts in String format
     var getTotalString: String {
         return "\(self.getTotal)"
     }
     
+    //Returns the total number of posts in Int format
     var getTotal: Int {
         return pagination?.total ?? 0
     }
     
+    //Initializes the Model with a user's ID, and fetches the first batch
+    //of posts
     init(userId: String){
         self.userId = userId
         loadData(userId: userId, skip: 0)
@@ -42,6 +52,8 @@ class PostsModel: ObservableObject {
         }
     }
     
+    //Loads Posts from the server incrementally, depending on it's skip
+    //Will only fetch two at a time asyncronously
     func loadData(userId: String, skip: Int) {
         self.loading = true
         

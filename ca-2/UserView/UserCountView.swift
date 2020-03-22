@@ -8,6 +8,9 @@
 
 import SwiftUI
 
+//Dynamically displays a number and text
+//depending on what information is given to it
+//Primary use is profile page following/follower count
 struct UserCountView: View {
     var count: Int
     var text: String

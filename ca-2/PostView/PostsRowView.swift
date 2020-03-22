@@ -8,6 +8,15 @@
 
 import SwiftUI
 
+/**
+   A single row of a post within a post list
+    Post is broken up into :
+        -Header
+        -Photo / Video
+        -Social Icons - Like/Comment
+        -PostedByInfo
+    This is done to break up components into neater, more maintanable code
+*/
 struct PostsRowView: View {
     var postItem: Post
     var postUrl = "\(baseUrl)posts/"

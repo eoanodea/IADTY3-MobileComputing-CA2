@@ -9,6 +9,11 @@
 import SwiftUI
 import URLImage
 
+/**
+    Handles image loading on a post
+    Image is loaded asynconously, and the View
+    displays progress to the user
+*/
 struct PostImageView: View {
     var url:String = ""
     var size:Int = 100
@@ -33,7 +38,8 @@ struct PostImageView: View {
                                 .stroke(lineWidth: 4.0)
                                 .foregroundColor(Color(.red))
                            }
-                        }                        .animation(.easeIn(duration: 0.2))
+                        }
+                       .animation(.easeIn(duration: 0.2))
                    }
                    .frame(width: 50.0, height: 50.0)
                 },

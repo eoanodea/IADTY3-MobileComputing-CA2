@@ -10,14 +10,21 @@ import Foundation
 
 var baseUrl: String = Bundle.main.infoDictionary!["BASE_URL"] as! String
 
-/// The Model for holding a list of Users
+/**
+    UsersModel()
+    Class which represents and handles all logic with the Users system
+    
+    Fetches users from the database
+*/
 class UsersModel: ObservableObject {
     @Published var users = [Users]()
 
+    //Load data on init
     init() {
         loadData()
     }
     
+    //Returns the total number of users in Int format
     var total: Int {
         return users.count
     }
@@ -32,6 +39,7 @@ class UsersModel: ObservableObject {
         return users.filter{ $0.name.lowercased().contains(term.lowercased()) };
     }
     
+    //Loads an array of users from the server asyncronously
     func loadData() {
         guard let url = URL(string: "\(baseUrl)users") else {
             print("invalid url")

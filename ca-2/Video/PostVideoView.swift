@@ -10,6 +10,11 @@ import SwiftUI
 import AVKit
 import WebKit
 
+/**
+    Handles the Video view on a post
+    the view will open a sheet when the user tabs the video icon
+    and play the video from a webView
+ */
 struct PostVideoView: View {
     var url: String = ""
     @State var isOpen: Bool = false
@@ -28,7 +33,7 @@ struct PostVideoView: View {
                 }.sheet(isPresented: $isOpen) {
                     WebView(request: URLRequest(url: URL(string: self.url)!))
                 }
-                    Spacer()
+                Spacer()
                 }
             }
             

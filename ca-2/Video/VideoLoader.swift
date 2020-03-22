@@ -11,6 +11,10 @@ import MetalKit
 import MetalPerformanceShaders
 import AVKit
 
+/**
+     Class used to load the entire AV video system for video streaming
+     Now not being used
+ */
 class BlurredVideoMPSView: MTKView {
     var player: AVPlayer!
     var blurRadius: Double = 6.0 {

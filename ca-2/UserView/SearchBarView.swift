@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+/**
+    Creates the search bar view and handles functionality
+    and binding between the search bar and the searchTerm state
+ */
 struct SearchBar: UIViewRepresentable {
 
     @Binding var text: String

@@ -8,6 +8,11 @@
 
 import SwiftUI
 
+/**
+    Default Profile Photo for a user
+    Can also dynamically change it's icon and size,
+     depending on props provided
+ */
 struct DefaultProfilePhotoView: View {
     var size:Int = 50
     var iconName:String = "person.circle.fill"

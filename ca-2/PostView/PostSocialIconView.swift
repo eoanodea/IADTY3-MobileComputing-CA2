@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+/**
+    This view interacts with the likesModels like system.
+    it checks if the post has been liked, and can add/remove a like
+*/
 struct PostSocialIconView: View {
     var postItem: Post
     @ObservedObject var likesModel: LikesModel

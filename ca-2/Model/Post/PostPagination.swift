@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+   PostPagination
+   Represents the Post pagination object fetched from the server
+*/
 struct PostPagination: Codable {
     var total: Int
     var hasMore: Bool

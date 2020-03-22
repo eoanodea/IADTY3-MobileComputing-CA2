@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+/**
+   Displays a list of posts on the favourited posts
+    tab. Takes this list from the likesModel
+*/
 struct LikedPostsListView: View {
     @ObservedObject var likesModel: LikesModel
     

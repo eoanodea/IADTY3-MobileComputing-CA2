@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+/*
+    This view contains information on the posts
+    caption and author
+*/
 struct PostPostedByInfoView: View {
     var postItem: Post
     @ObservedObject var likesModel: LikesModel

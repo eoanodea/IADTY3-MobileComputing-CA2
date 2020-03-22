@@ -8,6 +8,11 @@
 
 import SwiftUI
 
+/**
+    Displays a list of posts on a user's profile
+    Is designed to Lazy Load posts from it's Model,
+    and will only fetch them two at a time
+ */
 struct PostsListView: View {
     var userId:String = ""
     var skip:Int = 0

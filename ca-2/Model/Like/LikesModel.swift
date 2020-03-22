@@ -32,9 +32,12 @@ class LikesModel: ObservableObject {
         self.getAllLikes()
     }
     
-    //
+    //Loops through each like item within the array
+    //And fetches the associate post with it's like ID
+    //Only runs is likes is greater than 0, and if the post
+    //does not already exist
     func getLikedPosts() {
-        if(self.getTotal > 0) {
+        if(likes.count > 0) {
             for like in likes {
                 let posts = self.posts
                 let filteredPosts = posts.filter{ $0.id == like }.count
@@ -46,14 +49,17 @@ class LikesModel: ObservableObject {
         }
     }
     
+    //Returns the total number of posts in Int format
     var getTotal: Int {
         return posts.count
     }
     
+    //Returns the total number of posts in String format
     var getTotalString: String {
         return "\(self.getTotal)"
     }
     
+    //Gets all likes from persistant storage
     func getAllLikes() {
         if let decoded  = defaults.object(forKey: Like.keyOne) as? Data {
             if let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: decoded) {
@@ -63,11 +69,13 @@ class LikesModel: ObservableObject {
         }
     }
     
+    //Checks if a post has been liked
     func checkLike(postId: String) -> Bool {
         let filteredLikes = likes.filter{ $0 == postId }
         return filteredLikes.count > 0 ? true : false
     }
     
+    //Adds a like to persistant storage
     func addLike(postId: String) {
         var likes = self.likes
         likes.append(postId)
@@ -78,12 +86,14 @@ class LikesModel: ObservableObject {
         self.loadPost(postId: postId)
     }
     
+    //Adds test data to persistant storage
     func addTestData() {
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: data)
         defaults.set(encodedData, forKey: Like.keyOne)
         defaults.synchronize()
     }
     
+    //Removes a like from persistant storage
     func removeLike(postId: String) {
         let newLikes = self.likes
         let resultLikes = newLikes.filter{ $0 != postId }
@@ -95,6 +105,7 @@ class LikesModel: ObservableObject {
         likes = newLikes
     }
     
+    //Removes a post from the post array
     func removePost(postId: String) {
         let newPosts = self.posts
         let resutPosts = newPosts.filter{ $0.id != postId }
@@ -102,6 +113,7 @@ class LikesModel: ObservableObject {
         self.posts = resutPosts
     }
     
+    //Loads a post from the server asynchronously
     func loadPost(postId: String) {
         let resutPosts = posts.filter{ $0.id == postId }.count
         print("Checking if post exists first! \(resutPosts)")
@@ -145,8 +157,8 @@ class LikesModel: ObservableObject {
     }
 }
 
-
+//Basic String array used for testing the persistant storage
 var data: [String] = [
-"5e38aa11af9398001701af4a",
-"5e388d503467bb001788c3d0"
+    "5e38aa11af9398001701af4a",
+    "5e388d503467bb001788c3d0"
 ]

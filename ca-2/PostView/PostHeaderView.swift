@@ -8,6 +8,11 @@
 
 import SwiftUI
 
+
+/*
+ The header of a post
+ contains the users avatar and users name
+ */
 struct PostHeaderView: View {
     var postItem: Post
     var photoUrl = "\(baseUrl)users/photo/"

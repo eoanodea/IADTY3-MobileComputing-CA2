@@ -8,12 +8,19 @@
 
 import SwiftUI
 
+/**
+ UserDetailView is the users profile page
+ it displays information about the user,
+ and displays a list of their posts
+ */
 struct UserDetailView: View {
+    //Base URL concatenated with extras for user's photo API Fetch
     var photoUrl = "\(baseUrl)users/photo/"
     var userId: String = ""
     var userModel: UserModel
     @ObservedObject var likesModel: LikesModel
     
+    //Init the view with the user's ID
     init(userId: String, likesModel: LikesModel) {
         self.userId = userId
         self.userModel = UserModel(userId: userId)

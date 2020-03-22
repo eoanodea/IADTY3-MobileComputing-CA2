@@ -12,9 +12,14 @@ import SwiftUI
     Root View for the entire application
 */
 struct ContentView: View {
+    //Declaring the likes model which is passed from SceneDelegate
+    //This is passed globally throughout the app so all Views can access
+    //It's information
     @ObservedObject var likesModel: LikesModel
 
     var body: some View {
+        //TabView declares the bottom tabs for the app
+        //Along with the views associated with each tab
         TabView {
             UserListView(likesModel: likesModel)
                 .tabItem {

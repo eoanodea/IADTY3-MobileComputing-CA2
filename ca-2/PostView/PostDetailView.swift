@@ -8,6 +8,11 @@
 
 import SwiftUI
 
+/**
+    The detail view for a post,
+    used both on profile post view
+    and liked post view
+ */
 struct PostDetailView: View {
     var postItem: Post
     var postUrl = "\(baseUrl)posts/"
