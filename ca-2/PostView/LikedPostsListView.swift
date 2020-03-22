@@ -17,19 +17,20 @@ struct LikedPostsListView: View {
     }
     
     var body: some View {
-        ScrollView{
+        NavigationView{
             VStack{
                 if(likesModel.loading) {
                     Text("Loading..")
                 }
                 else if(likesModel.getTotal > 0) {
-                    Text("Posts: \(likesModel.getTotalString)")
-                    ForEach(likesModel.posts) { item in
-                        NavigationLink(destination: PostDetailView(postItem: item)) {
-                            LikedPostsRowView(postItem: item)
-                            .listRowInsets(EdgeInsets())
-                        }.buttonStyle(PlainButtonStyle())
-                    }.navigationBarTitle("Posts: \(likesModel.getTotal)")
+                    ScrollView {
+                        ForEach(likesModel.posts) { item in
+                            NavigationLink(destination: PostDetailView(postItem: item)) {
+                                LikedPostsRowView(postItem: item)
+                                .listRowInsets(EdgeInsets())
+                            }.buttonStyle(PlainButtonStyle())
+                        }.navigationBarTitle("Liked Posts: \(likesModel.getTotal)")
+                    }
                     
                 } else {
                     Text("You have not liked any posts")

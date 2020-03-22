@@ -55,11 +55,11 @@ class UserModel: ObservableObject {
     
     ///Returns the total number of followers
     var countFollowers: Int {
-        return user!.followers.count
+        return user?.followers.count ?? 0
     }
     
     ///Returns the total number of followers
     var countFollowing: Int {
-        return user!.following.count
+        return user?.following.count ?? 0
     }
 }

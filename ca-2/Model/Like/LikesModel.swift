@@ -65,6 +65,7 @@ class LikesModel: ObservableObject {
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: likes)
         defaults.set(encodedData, forKey: Like.keyOne)
         self.likes = likes
+        self.loadPost(postId: postId)
     }
     
     func addTestData() {
@@ -74,11 +75,17 @@ class LikesModel: ObservableObject {
     }
     
     func removeLike(postId: String) {
-        var likes = self.likes
+        let likes = self.likes
         let resultLikes = likes.filter{ $0 != postId }
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: resultLikes)
         defaults.set(encodedData, forKey: Like.keyOne)
         self.likes = likes
+    }
+    
+    func removePost(postId: String) {
+        let posts = self.posts
+        let resutPosts = posts.filter{ $0.id != postId }
+        self.posts = resutPosts
     }
     
     func loadPost(postId: String) {
