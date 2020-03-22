@@ -20,6 +20,8 @@
 		43047C242426A90F00B0D4CF /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43047C232426A90F00B0D4CF /* SearchBarView.swift */; };
 		433270C72427AD250045AD55 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433270C62427AD250045AD55 /* Comment.swift */; };
 		433270C92427AD370045AD55 /* PostPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433270C82427AD370045AD55 /* PostPagination.swift */; };
+		433270CD2427BCAD0045AD55 /* PostPostedByInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433270CC2427BCAD0045AD55 /* PostPostedByInfoView.swift */; };
+		433270D12427D18B0045AD55 /* LikesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433270D02427D18B0045AD55 /* LikesModel.swift */; };
 		437F7F122422D90F00F51DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F112422D90F00F51DAC /* AppDelegate.swift */; };
 		437F7F142422D90F00F51DAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F132422D90F00F51DAC /* SceneDelegate.swift */; };
 		437F7F162422D90F00F51DAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F152422D90F00F51DAC /* ContentView.swift */; };
@@ -57,6 +59,8 @@
 		43047C232426A90F00B0D4CF /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		433270C62427AD250045AD55 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		433270C82427AD370045AD55 /* PostPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPagination.swift; sourceTree = "<group>"; };
+		433270CC2427BCAD0045AD55 /* PostPostedByInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPostedByInfoView.swift; sourceTree = "<group>"; };
+		433270D02427D18B0045AD55 /* LikesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesModel.swift; sourceTree = "<group>"; };
 		437F7F0E2422D90F00F51DAC /* ca-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ca-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		437F7F112422D90F00F51DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		437F7F132422D90F00F51DAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,14 @@
 				43047C1B24266C4D00B0D4CF /* VideoLoader.swift */,
 			);
 			path = Video;
+			sourceTree = "<group>";
+		};
+		433270CF2427D1750045AD55 /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				433270D02427D18B0045AD55 /* LikesModel.swift */,
+			);
+			path = Like;
 			sourceTree = "<group>";
 		};
 		437F7F052422D90F00F51DAC = {
@@ -152,6 +164,7 @@
 		437F7F252422DBA800F51DAC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				433270CF2427D1750045AD55 /* Like */,
 				43D5DE6424258B6500FDD894 /* Post */,
 				437F7F282422DCD600F51DAC /* User */,
 			);
@@ -201,6 +214,7 @@
 				43047C1F24268E3D00B0D4CF /* PostSocialIconView.swift */,
 				43047C1D24268C8000B0D4CF /* PostHeaderView.swift */,
 				43047C21242699EA00B0D4CF /* PostRowVideoView.swift */,
+				433270CC2427BCAD0045AD55 /* PostPostedByInfoView.swift */,
 			);
 			path = PostView;
 			sourceTree = "<group>";
@@ -296,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43D5DE5724250B9900FDD894 /* ImageView.swift in Sources */,
+				433270CD2427BCAD0045AD55 /* PostPostedByInfoView.swift in Sources */,
 				437F7F2C2422DCF800F51DAC /* Follow.swift in Sources */,
 				43047C1C24266C4E00B0D4CF /* VideoLoader.swift in Sources */,
 				43D5DE60242581E100FDD894 /* UserCountView.swift in Sources */,
@@ -314,6 +329,7 @@
 				43047C0E24264C5B00B0D4CF /* PostImageView.swift in Sources */,
 				433270C92427AD370045AD55 /* PostPagination.swift in Sources */,
 				43D5DE5E2425673B00FDD894 /* UserModel.swift in Sources */,
+				433270D12427D18B0045AD55 /* LikesModel.swift in Sources */,
 				43D5DE52242506F400FDD894 /* UserRowView.swift in Sources */,
 				43047C0C242641D900B0D4CF /* PostsRowView.swift in Sources */,
 				437F7F2E2422DE7600F51DAC /* Users.swift in Sources */,

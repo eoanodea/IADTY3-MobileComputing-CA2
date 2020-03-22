@@ -23,15 +23,8 @@ struct PostDetailView: View {
                 } else {
                     PostVideoView(url: "\(postUrl)video/\(postItem.id)")
                 }
-                PostSocialIconView()
-                HStack {
-                    NavigationLink(destination: UserDetailView(userId: postItem.postedBy.id)) {
-                    Text(postItem.postedBy.name)
-                        .bold()
-                    }.buttonStyle(PlainButtonStyle())
-                    Text(postItem.text ?? "")
-                        .font(.caption)
-                }
+                PostSocialIconView(postItem: postItem)
+                PostPostedByInfoView(postItem: postItem)
             }
 
         }

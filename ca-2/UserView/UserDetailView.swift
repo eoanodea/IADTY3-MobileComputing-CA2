@@ -26,7 +26,6 @@ struct UserDetailView: View {
                         .frame(width: 100.0, height: 100.0)
                     Spacer()
                     HStack {
-                        UserCountView(count: userModel.countFollowers, text: "Posts")
                         UserCountView(count: userModel.countFollowers, text: "Followers")
                         UserCountView(count: userModel.countFollowing, text: "Following")
                     }

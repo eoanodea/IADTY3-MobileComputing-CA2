@@ -20,14 +20,16 @@ struct PostsRowView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            PostHeaderView(postItem: postItem)
             if(postItem.isPhoto) {
                 PostImageView(url: "\(postUrl)photo/\(postItem.id)")
                     .cornerRadius(5)
             } else {
                 PostRowVideoView()
             }
-            Text(postItem.text ?? "")
+            PostSocialIconView(postItem: postItem)
+            PostPostedByInfoView(postItem: postItem)
         }
         .padding(15)
     }
