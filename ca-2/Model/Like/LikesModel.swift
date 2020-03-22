@@ -29,6 +29,14 @@ class LikesModel: ObservableObject {
         }
     }
     
+    func checkLike(postId: String) -> Bool {
+        let likes = self.likes
+        let filteredLikes = likes.filter{ $0 == postId }
+        let result = filteredLikes.count > 0 ? true : false
+
+        return result
+    }
+    
     func addLike(postId: String) {
         var likes = self.likes
         likes.append(postId)

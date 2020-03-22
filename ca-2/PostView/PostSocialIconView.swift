@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PostSocialIconView: View {
     var postItem: Post
-    @State var liked:Bool = false
+    @State var liked: Bool = false
     @ObservedObject var likesModel: LikesModel
 
     init(postItem: Post) {
@@ -19,11 +19,9 @@ struct PostSocialIconView: View {
     }
     
     func likePost() {
-        if(!self.liked) {
-            self.liked = true
+        if(!likesModel.checkLike(postId: postItem.id)) {
             likesModel.addLike(postId: postItem.id)
         } else {
-            self.liked = false
             likesModel.removeLike(postId: postItem.id)
         }
         
@@ -33,7 +31,7 @@ struct PostSocialIconView: View {
     var body: some View {
         HStack {
             Button(action: likePost) {
-                Image(systemName: liked ? "heart.fill" : "heart")
+                Image(systemName: likesModel.checkLike(postId: postItem.id) ? "heart.fill" : "heart")
                     .font(.largeTitle)
                     .padding(5)
             }.buttonStyle(PlainButtonStyle())
