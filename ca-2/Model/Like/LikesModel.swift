@@ -14,11 +14,33 @@ struct Like {
 
 class LikesModel: ObservableObject {
     @Published var likes: [String] = []
+    @Published var posts = [Post]()
+    var loading: Bool = true
+    
     let defaults = UserDefaults.standard
     
     init() {
 //        self.addTestData()
         self.getAllLikes()
+    }
+    
+    func getLikedPosts() {
+        if(self.getTotal > 0) {
+            self.loading = true
+            for like in likes {
+                print("Fetching post with \(like)")
+                self.loadPost(postId: like)
+            }
+            self.loading = false
+        }
+    }
+    
+    var getTotal: Int {
+        return likes.count
+    }
+    
+    var getTotalString: String {
+        return "\(self.getTotal)"
     }
     
     func getAllLikes() {
@@ -57,6 +79,46 @@ class LikesModel: ObservableObject {
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: resultLikes)
         defaults.set(encodedData, forKey: Like.keyOne)
         self.likes = likes
+    }
+    
+    func loadPost(postId: String) {
+        
+        guard let url = URL(string: "\(baseUrl)posts/\(postId)/") else {
+            print("invalid url")
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        
+        /**
+         Creates a networking task from the url request
+         Takes three parameters:
+         
+         `data` - returned from request
+         `response` - description of data, status, weight etc
+         `error` - if an error had occured
+         
+         .resume ensures the request starts immediately in the background
+         and is controlled by the system
+         */
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            //Runs after .resume() has been completed
+            if let data = data {
+                do {
+                    
+                    let response = try JSONDecoder().decode(Post.self, from: data)
+                    
+                    var posts = self.posts
+                    posts.append(response)
+                    
+                    DispatchQueue.main.async {
+                        self.posts = posts
+                    }
+                } catch let error as NSError{
+                    print("Error reading JSON file: \(error)")
+                }
+            }
+        }.resume()
     }
 }
 

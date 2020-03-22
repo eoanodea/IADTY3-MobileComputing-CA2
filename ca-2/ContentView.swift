@@ -13,8 +13,13 @@ struct ContentView: View {
         TabView {
             UserListView()
                 .tabItem {
-                    Image(systemName: "house.fill")
+                    Image(systemName: "person.fill")
                     Text("Users")
+            }
+            LikedPostsListView()
+                .tabItem {
+                    Image(systemName: "heart.fill")
+                    Text("Favourite Posts")
             }
         }
     }

@@ -22,6 +22,8 @@
 		433270C92427AD370045AD55 /* PostPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433270C82427AD370045AD55 /* PostPagination.swift */; };
 		433270CD2427BCAD0045AD55 /* PostPostedByInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433270CC2427BCAD0045AD55 /* PostPostedByInfoView.swift */; };
 		433270D12427D18B0045AD55 /* LikesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433270D02427D18B0045AD55 /* LikesModel.swift */; };
+		433270D32427EE230045AD55 /* LikedPostsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433270D22427EE230045AD55 /* LikedPostsListView.swift */; };
+		433270D72427FF6E0045AD55 /* LikedPostsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433270D62427FF6E0045AD55 /* LikedPostsRowView.swift */; };
 		437F7F122422D90F00F51DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F112422D90F00F51DAC /* AppDelegate.swift */; };
 		437F7F142422D90F00F51DAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F132422D90F00F51DAC /* SceneDelegate.swift */; };
 		437F7F162422D90F00F51DAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F7F152422D90F00F51DAC /* ContentView.swift */; };
@@ -61,6 +63,8 @@
 		433270C82427AD370045AD55 /* PostPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPagination.swift; sourceTree = "<group>"; };
 		433270CC2427BCAD0045AD55 /* PostPostedByInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPostedByInfoView.swift; sourceTree = "<group>"; };
 		433270D02427D18B0045AD55 /* LikesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesModel.swift; sourceTree = "<group>"; };
+		433270D22427EE230045AD55 /* LikedPostsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPostsListView.swift; sourceTree = "<group>"; };
+		433270D62427FF6E0045AD55 /* LikedPostsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPostsRowView.swift; sourceTree = "<group>"; };
 		437F7F0E2422D90F00F51DAC /* ca-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ca-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		437F7F112422D90F00F51DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		437F7F132422D90F00F51DAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,12 +213,14 @@
 			isa = PBXGroup;
 			children = (
 				43D5DE6224258AAB00FDD894 /* PostsListView.swift */,
+				433270D22427EE230045AD55 /* LikedPostsListView.swift */,
 				43047C0B242641D900B0D4CF /* PostsRowView.swift */,
 				43047C1924265EAC00B0D4CF /* PostDetailView.swift */,
 				43047C1F24268E3D00B0D4CF /* PostSocialIconView.swift */,
 				43047C1D24268C8000B0D4CF /* PostHeaderView.swift */,
 				43047C21242699EA00B0D4CF /* PostRowVideoView.swift */,
 				433270CC2427BCAD0045AD55 /* PostPostedByInfoView.swift */,
+				433270D62427FF6E0045AD55 /* LikedPostsRowView.swift */,
 			);
 			path = PostView;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 				43D5DE5C2425366200FDD894 /* DefaultProfilePhotoView.swift in Sources */,
 				43D5DE50242506DE00FDD894 /* UserListView.swift in Sources */,
 				43047C1E24268C8100B0D4CF /* PostHeaderView.swift in Sources */,
+				433270D32427EE230045AD55 /* LikedPostsListView.swift in Sources */,
 				437F7F122422D90F00F51DAC /* AppDelegate.swift in Sources */,
 				43D5DE6624258B7E00FDD894 /* PostsModel.swift in Sources */,
 				43047C1124264E6300B0D4CF /* PostVideoView.swift in Sources */,
@@ -329,6 +336,7 @@
 				43047C0E24264C5B00B0D4CF /* PostImageView.swift in Sources */,
 				433270C92427AD370045AD55 /* PostPagination.swift in Sources */,
 				43D5DE5E2425673B00FDD894 /* UserModel.swift in Sources */,
+				433270D72427FF6E0045AD55 /* LikedPostsRowView.swift in Sources */,
 				433270D12427D18B0045AD55 /* LikesModel.swift in Sources */,
 				43D5DE52242506F400FDD894 /* UserRowView.swift in Sources */,
 				43047C0C242641D900B0D4CF /* PostsRowView.swift in Sources */,

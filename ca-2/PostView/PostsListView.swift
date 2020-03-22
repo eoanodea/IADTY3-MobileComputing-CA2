@@ -17,7 +17,7 @@ struct PostsListView: View {
         self.userId = userId
         self.postsModel = PostsModel(userId: userId)
     }
-    
+        
     var body: some View {
         VStack{
             if(postsModel.loading) {
