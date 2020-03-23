@@ -59,7 +59,7 @@ class LikesModel: ObservableObject {
         return "\(self.getTotal)"
     }
     
-    //Gets all likes from persistant storage
+    //Gets all likes from persistent storage
     func getAllLikes() {
         if let decoded  = defaults.object(forKey: Like.keyOne) as? Data {
             if let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: decoded) {
@@ -75,7 +75,7 @@ class LikesModel: ObservableObject {
         return filteredLikes.count > 0 ? true : false
     }
     
-    //Adds a like to persistant storage
+    //Adds a like to persistent storage
     func addLike(postId: String) {
         var likes = self.likes
         likes.append(postId)
