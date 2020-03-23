@@ -41,7 +41,7 @@ struct UserDetailView: View {
                 }
                 .navigationBarTitle(Text(userModel.user?.name ?? "User"), displayMode: .inline)
                 .padding(40)
-                PostsListView(userId: self.userId, likesModel: likesModel)
+                PostsListView(userId: self.userId, likesModel: self.likesModel)
 
             }
         }
